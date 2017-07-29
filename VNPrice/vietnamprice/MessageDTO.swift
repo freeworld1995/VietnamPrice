@@ -8,12 +8,12 @@
 
 import UIKit
 import ObjectMapper
+
 class MessageDTO: Mappable {
     var id: Int?
     var description: String?
     var createdDate: String?
     var userId: String?
-    
     
     required init?(map: Map) {
     }
