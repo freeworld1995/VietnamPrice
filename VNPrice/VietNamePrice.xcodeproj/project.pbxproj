@@ -141,13 +141,13 @@
 				1BBD93A91F2A405F009B5ECF /* Noti */,
 				1BA959F61F29F32800161249 /* AppDelegate.swift */,
 				1B4B3A451F2B9E2000F8D787 /* ViewController */,
+				BFDBDEA71F2C7280000D05DF /* Network */,
 				1BA95A1A1F2A0E3000161249 /* SettingLanguageViewController.swift */,
 				1BA95A1C1F2A1E3200161249 /* LoginViewController.swift */,
 				1BA95A1E1F2A339B00161249 /* SignUpViewController.swift */,
 				1BA959FD1F29F32800161249 /* Assets.xcassets */,
 				1BA95A021F29F32800161249 /* Info.plist */,
 				BF631DDB1F2C4D1B007D897A /* Language */,
-				BFDBDEA71F2C7280000D05DF /* Network */,
 			);
 			path = vietnamprice;
 			sourceTree = "<group>";

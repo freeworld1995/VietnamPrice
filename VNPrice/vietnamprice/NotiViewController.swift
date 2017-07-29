@@ -42,6 +42,7 @@ class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     }
     
     func getMessaga (){
+         
         Alamofire.request(MessageRouter.getMessage(["page": self.page])).responseArray { [unowned self] (response:DataResponse<[MessageDTO]>) in
             
             switch response.result {

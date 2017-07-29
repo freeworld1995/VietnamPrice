@@ -35,9 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(userInfo)
     }
     
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         print("Hooray! I'm registered!")
-        FIRMessaging.messaging().subscribeToTopic("/topics/swift_fans")
+        Messaging.messaging().subscribe(toTopic: "/topics/\(Language.getCurrentLanguageForRouter())")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

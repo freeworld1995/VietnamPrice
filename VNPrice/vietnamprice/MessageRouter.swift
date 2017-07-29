@@ -14,10 +14,13 @@ enum MessageRouter: URLRequestConvertible {
     
     case getMessage([String: Any])
     func asURLRequest() throws -> URLRequest {
+        
+        
         var method: HTTPMethod {
             return .post
 
         }
+        
         let url: URL = {
             let relativePath = "messages"
             var url = URL(string: MessageRouter.baseURL)!
@@ -25,7 +28,16 @@ enum MessageRouter: URLRequestConvertible {
             return url
         }()
         
+        let cstorage = HTTPCookieStorage.shared
+        if let cookies = cstorage.cookies(for: url) {
+            for cookie in cookies {
+                cstorage.deleteCookie(cookie)
+            }
+        }
+        
+        
         let params: Parameters? = {
+        //    let params: Parameters = ["l": Language.getCurrentLanguageForRouter()]
             return nil
         }()
         
@@ -38,17 +50,13 @@ enum MessageRouter: URLRequestConvertible {
         }()
         
         
-        let cstorage = HTTPCookieStorage.shared
-        if let cookies = cstorage.cookies(for: url) {
-            for cookie in cookies {
-                cstorage.deleteCookie(cookie)
-            }
-        }
         
+        // Create URLRequest
         var urlRequest = URLRequest(url: url)
+        urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
         urlRequest.httpMethod = method.rawValue
         urlRequest.httpBody = httpBody
-        
+
         urlRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         
