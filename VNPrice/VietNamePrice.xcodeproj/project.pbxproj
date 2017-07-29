@@ -33,6 +33,7 @@
 		BFDBDEAE1F2C76E3000D05DF /* MessageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBDEAD1F2C76E3000D05DF /* MessageRouter.swift */; };
 		BFDBDEB01F2C8182000D05DF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBDEAF1F2C8182000D05DF /* Product.swift */; };
 		BFDBDEB21F2C8BA4000D05DF /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBDEB11F2C8BA4000D05DF /* ProductRequest.swift */; };
+		BFDBDEB51F2CAABE000D05DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		BFDBDEAD1F2C76E3000D05DF /* MessageRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRouter.swift; sourceTree = "<group>"; };
 		BFDBDEAF1F2C8182000D05DF /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		BFDBDEB11F2C8BA4000D05DF /* ProductRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
+		BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F889112E92E727BBD35182B5 /* Pods-VietNamePrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VietNamePrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VietNamePrice/Pods-VietNamePrice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 		1BA959F51F29F32800161249 /* vietnamprice */ = {
 			isa = PBXGroup;
 			children = (
+				BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */,
 				BF631DE51F2C54A4007D897A /* Models */,
 				BF631DDA1F2C4CF5007D897A /* Storyboards */,
 				BF631DD31F2C4C4C007D897A /* Utilities */,
@@ -327,6 +330,7 @@
 			files = (
 				1BA95A011F29F32800161249 /* LaunchScreen.storyboard in Resources */,
 				BF631DE01F2C4DBE007D897A /* Localizable.strings in Resources */,
+				BFDBDEB51F2CAABE000D05DF /* GoogleService-Info.plist in Resources */,
 				1BA959FE1F29F32800161249 /* Assets.xcassets in Resources */,
 				1BA959FC1F29F32800161249 /* Main.storyboard in Resources */,
 			);
@@ -347,7 +351,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B6AC7FF89D22AB1C933E6427 /* [CP] Embed Pods Frameworks */ = {
