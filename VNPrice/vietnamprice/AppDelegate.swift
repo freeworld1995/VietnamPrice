@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let notification  : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        
+        let notificationSetting = UIUserNotificationSettings(types: notification, categories: nil)
+        
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationSetting)
+        
+        
+        FirebaseApp.configure()
         return true
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(userInfo)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
