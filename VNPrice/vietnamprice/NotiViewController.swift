@@ -14,6 +14,8 @@ import AlamofireObjectMapper
 class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     var arrMessages = [MessageDTO]()
+    var page = 0
+    var isLoadMore = true
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -35,20 +37,36 @@ class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getMessaga()
         
-        Alamofire.request(MessageRouter.getMessage(["page": 0])).responseArray { [unowned self] (response:DataResponse<[MessageDTO]>) in
+    }
+    
+    func getMessaga (){
+        Alamofire.request(MessageRouter.getMessage(["page": self.page])).responseArray { [unowned self] (response:DataResponse<[MessageDTO]>) in
             
             switch response.result {
             case .success(let value):
-                self.arrMessages = value
+                let count = self.arrMessages.count
+                
+                for message in value{
+                    self.arrMessages.append(message)
+                }
+                if(count == self.arrMessages.count){
+                    self.isLoadMore = false
+                }
+                else{
+                    self.isLoadMore = true
+                }
                 self.tableView.reloadData()
                 
             case .failure(let error):
                 print("load question error: \(error.localizedDescription)")
             }
-        
+            
         }
     }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrMessages.count
     }
@@ -63,7 +81,15 @@ class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-        
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    
+        if (indexPath.row == self.arrMessages.count - 1 && self.isLoadMore) {
+            page += 1
+            getMessaga()
+        }
+    }
     
     
 }
