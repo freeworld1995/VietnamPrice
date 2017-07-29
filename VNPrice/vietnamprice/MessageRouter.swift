@@ -46,10 +46,12 @@ enum MessageRouter: URLRequestConvertible {
         }
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
         urlRequest.httpMethod = method.rawValue
         urlRequest.httpBody = httpBody
-
+        
+        urlRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
+        
         let encoding = URLEncoding.default
         
         return try! encoding.encode(urlRequest, with: params)
