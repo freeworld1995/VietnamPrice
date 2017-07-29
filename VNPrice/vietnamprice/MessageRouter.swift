@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
-class MessageRouter: NSObject {
-
+import Foundation
+import Alamofire
+enum MessageRouter: URLRequestConvertible {
+    static let baseURL = "http://103.237.147.10:8080/"
+    
+    case loginUserByEmail(String, String)
 }
