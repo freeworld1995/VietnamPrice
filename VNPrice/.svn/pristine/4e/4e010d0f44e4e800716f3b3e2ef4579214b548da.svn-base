@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  VietNamePrice
+
+  Created by Jimmy Hoang on 7/29/17.
+  Copyright © 2017 VanQuang. All rights reserved.
+*/
+"Thông báo" = "通知";
+"THÔNG BÁO" = "通知";
+"Cài đặt" = "设置";
+"Đăng nhập" = "注册";
+"Đổi mật khẩu" = "更改密码";
+"Đăng xuất" = "登出";
+
+"Sản Phẩm" = "制品";
+"Giá" = "价钱";
+"Thay Đổi(%)" = "变化(%)";
+"Giao Dịch" = "合同";
+
+"Mua/Bán" = "购买/卖";

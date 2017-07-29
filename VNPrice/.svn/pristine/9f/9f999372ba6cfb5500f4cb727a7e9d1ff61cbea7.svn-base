@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - ChartsRealm (3.0.2):
+    - Charts (~> 3.0.2)
+    - RealmSwift (~> 2.4)
+  - Realm (2.9.0):
+    - Realm/Headers (= 2.9.0)
+  - Realm/Headers (2.9.0)
+  - RealmSwift (2.9.0):
+    - Realm (= 2.9.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - Charts
+  - ChartsRealm
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  ChartsRealm: ed0332fd409298188a2b71e9548604165c987d42
+  Realm: f14ab1673502559cb16592ddb8f383c474c13e05
+  RealmSwift: 16ad2c187042c4934f49750375582fe508627dcb
+
+PODFILE CHECKSUM: fbcde9cd789053e690e9f6b01c79c2be1e44a59e
+
+COCOAPODS: 1.2.0
