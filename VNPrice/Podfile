@@ -4,9 +4,10 @@
 target 'VietNamePrice' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-pod 'Firebase/Core'
-pod 'Firebase'
-pod 'Firebase/Messaging’
+
+  pod 'Firebase/Core'
+  pod 'Firebase'
+  pod 'Firebase/Messaging’
   pod 'RealmSwift'
   pod 'ChartsRealm'
   pod 'Charts'
@@ -14,7 +15,8 @@ pod 'Firebase/Messaging’
   pod 'ObjectMapper', '~> 2.2'
   pod 'AlamofireObjectMapper', '~> 4.0'
 
-
+  pod 'NVActivityIndicatorView'
+  pod 'SCLAlertView'
 end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
