@@ -16,4 +16,11 @@ class CommonUtils {
         
         return dateFormatter.string(from: currentDate)
     }
+    
+    static func getAttributeText(inputText: String, color: UIColor, font: UIFont) -> NSMutableAttributedString {
+        let attributes = [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
+        let stringAttribute = NSMutableAttributedString(string: inputText, attributes: attributes)
+        
+        return stringAttribute
+    }
 }
