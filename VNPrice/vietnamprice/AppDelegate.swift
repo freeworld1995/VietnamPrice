@@ -8,7 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseInstanceID
 import FirebaseMessaging
+import UserNotifications
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        FirebaseApp.configure()
         let notification  : UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
         
         let notificationSetting = UIUserNotificationSettings(types: notification, categories: nil)
@@ -27,7 +31,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(notificationSetting)
         
         
-        FirebaseApp.configure()
+        
+//        if #available(iOS 10.0, *) {
+//            // For iOS 10 display notification (sent via APNS)
+//            UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+//            
+//            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//            UNUserNotificationCenter.current().requestAuthorization(
+//                options: authOptions,
+//                completionHandler: {_, _ in })
+//            
+//            // For iOS 10 data message (sent via FCM)
+//            Messaging.messaging().remoteMessageDelegate = self
+//            
+//        } else {
+//            let settings: UIUserNotificationSettings =
+//                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+//            application.registerUserNotificationSettings(settings)
+//        }
+//        
+//       FirebaseApp.configure()
+//        
+//        // Add observer for InstanceID token refresh callback.
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(self.tokenRefreshNotification),
+//                                               name: .firInstanceIDTokenRefresh,
+//                                               object: nil)
+//        
+//        
+//        application.registerForRemoteNotifications()
+//        
+//        
+//        // Check if app was not running in background and user taps on Push Notification
+//        // This will perform your code in didReceiveRemoteNotification where you should handle different application states
+//        if let options = launchOptions, let notification = options[UIApplicationLaunchOptionsKey.remoteNotification] as? [NSObject : AnyObject] {
+//            self.application(application, didReceiveRemoteNotification: notification)
+//        }
+//        
         return true
     }
     

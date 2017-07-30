@@ -39,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4A882F1F2D79DE004B1CB8 /* VietNamePrice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = VietNamePrice.entitlements; path = ../VietNamePrice.entitlements; sourceTree = "<group>"; };
 		1B4B3A521F2BAE8400F8D787 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		1B4B3A541F2BB23200F8D787 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		1BA959F31F29F32800161249 /* VietNamePrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VietNamePrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +137,7 @@
 		1BA959F51F29F32800161249 /* vietnamprice */ = {
 			isa = PBXGroup;
 			children = (
+				1B4A882F1F2D79DE004B1CB8 /* VietNamePrice.entitlements */,
 				BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */,
 				BF631DE51F2C54A4007D897A /* Models */,
 				BF631DDA1F2C4CF5007D897A /* Storyboards */,
@@ -306,6 +308,14 @@
 						DevelopmentTeam = 298E2W7U9M;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -558,11 +568,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = VietNamePrice.entitlements;
 				DEVELOPMENT_TEAM = 298E2W7U9M;
 				INFOPLIST_FILE = vietnamprice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lienketsoftware.vietnamprice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lienketsoftware.vietnamprices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "vietnamprice/VietNamePrice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -576,11 +587,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = VietNamePrice.entitlements;
 				DEVELOPMENT_TEAM = 298E2W7U9M;
 				INFOPLIST_FILE = vietnamprice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lienketsoftware.vietnamprice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lienketsoftware.vietnamprices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "vietnamprice/VietNamePrice-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
