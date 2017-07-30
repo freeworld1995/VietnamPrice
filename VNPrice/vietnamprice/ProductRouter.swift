@@ -14,14 +14,17 @@ let baseURL = ""
 enum ProductRouter: URLRequestConvertible {
     static let baseURL = "http://103.237.147.10:8080/api/"
     
-    case getAllProduct()
+    case getMainProduct([String: Any])
     case getSubProduct()
+    case getProductById([String: Any])
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
-            case .getAllProduct, .getSubProduct:
+            case .getSubProduct, .getProductById:
                 return .get
+            case .getMainProduct:
+                return .post
             }
         }
         
@@ -30,8 +33,8 @@ enum ProductRouter: URLRequestConvertible {
             let relativePath: String
             
             switch self {
-            case .getAllProduct:
-                relativePath = "search/product"
+            case .getMainProduct, .getProductById:
+                relativePath = "product-price"
             case .getSubProduct:
                 relativePath = "get-all-sub-products"
             }
@@ -44,7 +47,7 @@ enum ProductRouter: URLRequestConvertible {
         // Set params
         let params: Parameters? = {
             switch self {
-            case .getAllProduct, .getSubProduct:
+            case .getMainProduct, .getSubProduct, .getProductById:
                 let params: Parameters = ["l": Language.getCurrentLanguageForRouter()]
                 return params
             }
@@ -53,8 +56,10 @@ enum ProductRouter: URLRequestConvertible {
         // Set HTTPBody
         let httpBody: Data? = {
             switch self {
-            case .getAllProduct, .getSubProduct:
+            case .getSubProduct:
                 return nil
+            case .getProductById(let dict), .getMainProduct(let dict):
+                return try! JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
             }
         }()
         
@@ -74,10 +79,12 @@ enum ProductRouter: URLRequestConvertible {
 
         // Add authorization
         switch self {
-        case .getAllProduct, .getSubProduct:
-            urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        case .getMainProduct, .getSubProduct, .getProductById:
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
+        let fuck = try! URLEncoding.default.encode(urlRequest, with: params)
+        print(fuck)
         return try! URLEncoding.default.encode(urlRequest, with: params)
     }
 }
