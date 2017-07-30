@@ -27,8 +27,6 @@ class ProductRequest: CustomAlertView {
     
     static func getMainProduct(viewController vc: UIViewController, params: [String: Any], completion: @escaping ([ProductPrice]) -> ()) {
         Alamofire.request(ProductRouter.getMainProduct(params)).responseArray { (response: DataResponse<[ProductPrice]>) in
-            print("fuck\(response.response?.statusCode)")
-            print("dit me\(response.request.debugDescription)")
             switch response.result {
             case .success(let value):
                 completion(value)
