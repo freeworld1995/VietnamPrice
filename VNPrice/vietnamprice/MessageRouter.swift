@@ -38,8 +38,8 @@ enum MessageRouter: URLRequestConvertible {
         
         
         let params: Parameters? = {
-        //    let params: Parameters = ["l": Language.getCurrentLanguageForRouter()]
-            return nil
+            let params: Parameters = ["l": Language.getCurrentLanguageForRouter()]
+            return params
         }()
         
         
@@ -63,7 +63,7 @@ enum MessageRouter: URLRequestConvertible {
         
 //        let encoding = URLEncoding.default
         
-        return try! URLEncoding.default.encode(urlRequest, with: params)
+        return try! URLEncoding.queryString.encode(urlRequest, with: params)
             
     }
 }
