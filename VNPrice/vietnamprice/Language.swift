@@ -54,10 +54,12 @@ struct Language {
         
         guard lang != nil else { return LANGUAGE_VN }
         
-        if lang != LANGUAGE_CHI {
-            return lang!
-        } else {
+        if lang == "vi" {
+            return "vn"
+        } else if lang == "zh-Hans" {
             return "zh"
+        } else {
+            return "eng"
         }
     }
     

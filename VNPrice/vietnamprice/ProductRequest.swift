@@ -9,19 +9,32 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import SCLAlertView
 
-class ProductRequest {
-    static func getSubProduct(completion: @escaping ([Product])-> ()) {
+class ProductRequest: CustomAlertView {
+    static func getSubProduct(viewController vc: UIViewController, completion: @escaping ([Product])-> ()) {
         Alamofire.request(ProductRouter.getSubProduct()).responseArray { (response: DataResponse<[Product]>) in
             
             switch response.result {
             case .success(let value):
                 completion(value)
             case .failure(let error):
-                print(error)
+                debugPrint(error.localizedDescription)
+                showCustomAlert(title: "Error", subTitle: "Something gone wrong", controller: vc, style: .error)
             }
-            
-            
+        }
+    }
+    
+    static func getMainProduct(viewController vc: UIViewController, params: [String: Any], completion: @escaping ([ProductPrice]) -> ()) {
+
+        Alamofire.request(ProductRouter.getMainProduct(params)).responseArray { (response: DataResponse<[ProductPrice]>) in
+            switch response.result {
+            case .success(let value):
+                completion(value)
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                showCustomAlert(title: "Error", subTitle: "Something gone wrong", controller: vc, style: .error)
+            }
         }
     }
 }

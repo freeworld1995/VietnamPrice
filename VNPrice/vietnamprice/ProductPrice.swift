@@ -14,7 +14,7 @@ class ProductPrice: Mappable {
     var productId: Int?
     var productName: String?
     var created_date: String?
-    var price: Double?
+    var price: Float?
     var percent: String?
     var isParent: Bool?
     var formatedPrice: String?
@@ -24,10 +24,9 @@ class ProductPrice: Mappable {
     }
     
     func mapping(map: Map) {
-        id <- map["id"]
+   
         productId <- map["productId"]
-        productName <- map["productName"]
-        created_date <- map["created_date"]
+
         price <- map["price"]
         percent <- map["percent"]
         isParent <- map["isParent"]
