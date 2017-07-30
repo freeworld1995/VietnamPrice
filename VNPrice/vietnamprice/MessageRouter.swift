@@ -61,9 +61,9 @@ enum MessageRouter: URLRequestConvertible {
         urlRequest.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         
-        let encoding = URLEncoding.default
+//        let encoding = URLEncoding.default
         
-        return try! encoding.encode(urlRequest, with: params)
+        return try! URLEncoding.default.encode(urlRequest, with: params)
             
     }
 }
