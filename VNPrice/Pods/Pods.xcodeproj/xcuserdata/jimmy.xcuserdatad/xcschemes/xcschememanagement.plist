@@ -14,12 +14,37 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Charts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>ChartsRealm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,17 +97,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>21EAE59A3D9EC3E15C380EFE6B4F5CDF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3667F4E283893F8C8FB16794C12185D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>683FA93B40B2E388EB44CBEFF725ED29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7CBC09F0D9146D5F2F4BAB43DD7B4515</key>
+		<key>7258309764CB09232B52125A05664EAD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72BD5A977EB0B5BF37DEC3B552798A04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,6 +142,21 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BC5000D645EEAF961C85907CDC796FE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C10186F643AC0BD52AAE6B758E796AA7</key>
 		<dict>
 			<key>primary</key>
@@ -127,12 +167,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F307B842FF76B2DE6C55DB67C0885325</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5C99D38ABEDA18544490EEBAF55A6F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

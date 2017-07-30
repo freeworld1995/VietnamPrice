@@ -59,6 +59,7 @@ enum ProductRouter: URLRequestConvertible {
             case .getSubProduct:
                 return nil
             case .getProductById(let dict), .getMainProduct(let dict):
+                print("di me may \(dict)")
                 return try! JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
             }
         }()
@@ -80,11 +81,16 @@ enum ProductRouter: URLRequestConvertible {
         // Add authorization
         switch self {
         case .getMainProduct, .getSubProduct, .getProductById:
-            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
-        let fuck = try! URLEncoding.default.encode(urlRequest, with: params)
-        print(fuck)
-        return try! URLEncoding.default.encode(urlRequest, with: params)
+        
+        switch self {
+        case .getMainProduct, .getProductById:
+            return try! URLEncoding.queryString.encode(urlRequest, with: params)
+        case .getSubProduct:
+            return try! URLEncoding.default.encode(urlRequest, with: params)
+        }
+        
     }
 }
