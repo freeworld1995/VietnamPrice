@@ -24,9 +24,9 @@ class ProductPrice: Mappable {
     }
     
     func mapping(map: Map) {
-   
+        id <- map["id"]
         productId <- map["productId"]
-
+        productName <- map["productName"]
         price <- map["price"]
         percent <- map["percent"]
         isParent <- map["isParent"]

@@ -52,7 +52,7 @@ struct Language {
     static func getCurrentLanguageForRouter() -> String {
         let lang = UserDefaults.standard.object(forKey: DEFAULT_LANG_KEY) as? String
         
-        guard lang != nil else { return LANGUAGE_VN }
+        guard lang != nil else { return "vn" }
         
         if lang == "vi" {
             return "vn"

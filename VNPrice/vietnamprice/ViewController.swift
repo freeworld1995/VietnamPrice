@@ -36,8 +36,8 @@ class ViewController: UIViewController {
     }
     
     func loadData() {
-        let params: [String: Any] = ["createdDate": CommonUtils.getCurrentDayMonthYear()]
-        print(params)
+        let params: Parameters = ["createdDate": "29/07/2017"]
+
         ProductRequest.getMainProduct(viewController: self, params: params) { (result) in
             self.MainProducts = result
             self.tableView.reloadData()
