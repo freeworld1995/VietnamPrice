@@ -14,6 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
     
+    var isPresentingSubProducts = false {
+        didSet {
+            if isPresentingSubProducts {
+                menuButton.image = #imageLiteral(resourceName: "ic_back")
+            } else {
+                menuButton.image = #imageLiteral(resourceName: "icon_30x30")
+            }
+        }
+    }
+    
     @IBAction func notification(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "notification") as! NotiViewController
         self.navigationController?.pushViewController(vc, animated: true)
@@ -31,13 +41,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupLanguageForView(view)
         slideMenu()
- 
+        
         loadData()
     }
     
     func loadData() {
         let params: Parameters = ["createdDate": "29/07/2017"]
-
+        
         ProductRequest.getMainProduct(viewController: self, params: params) { (result) in
             self.MainProducts = result
             self.tableView.reloadData()
@@ -49,12 +59,32 @@ class ViewController: UIViewController {
         }
     }
     
-    func slideMenu(){
+    func slideMenu() {
         if ( revealViewController() != nil ){
             menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            menuButton.action = #selector(self.showSlideMenu(_:))
             revealViewController().rearViewRevealWidth = 270
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    
+    func showSlideMenu(_ sender: SWRevealViewController) {
+        if !isPresentingSubProducts {
+            _ = SWRevealViewController.revealToggle(_:)
+        } else {
+            loadData()
+            isPresentingSubProducts = false
+        }
+    }
+    
+    func showSubProducts(_ product: ProductPrice) {
+        let params: [String: Any] = ["createdDate": CommonUtils.getCurrentDayMonthYear(), "productId": product.productId!]
+        
+        ProductRequest.getProductById(viewController: self, params: params) { (result) in
+            self.isPresentingSubProducts = true
+            self.MainProducts.removeAll()
+            self.MainProducts = result
+            self.tableView.reloadData()
         }
     }
 }
@@ -73,6 +103,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.price.text = product.formatedPrice
         cell.change.text = product.diff
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let product = MainProducts[indexPath.row]
+        
+        if !isPresentingSubProducts {
+            showSubProducts(product)
+        } else {
+            print("Show chart")
+        }
         
     }
     

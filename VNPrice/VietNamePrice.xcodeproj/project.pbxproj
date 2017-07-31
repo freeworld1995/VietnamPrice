@@ -12,7 +12,6 @@
 		1BA959F71F29F32800161249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA959F61F29F32800161249 /* AppDelegate.swift */; };
 		1BA959F91F29F32800161249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA959F81F29F32800161249 /* ViewController.swift */; };
 		1BA959FC1F29F32800161249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA959FA1F29F32800161249 /* Main.storyboard */; };
-		1BA959FE1F29F32800161249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA959FD1F29F32800161249 /* Assets.xcassets */; };
 		1BA95A011F29F32800161249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA959FF1F29F32800161249 /* LaunchScreen.storyboard */; };
 		1BA95A131F2A008E00161249 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA95A121F2A008E00161249 /* SWRevealViewController.m */; };
 		1BA95A151F2A059300161249 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA95A141F2A059300161249 /* LeftMenuViewController.swift */; };
@@ -36,6 +35,9 @@
 		BFDBDEB51F2CAABE000D05DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */; };
 		BFDBDEB71F2CFCCE000D05DF /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBDEB61F2CFCCE000D05DF /* CommonUtils.swift */; };
 		BFDBDEB91F2D003D000D05DF /* IntegrateAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDBDEB81F2D003D000D05DF /* IntegrateAlertView.swift */; };
+		BFE50E521F2F04E600F089D9 /* Hoang.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE50E511F2F04E600F089D9 /* Hoang.storyboard */; };
+		BFE50E541F2F0A8200F089D9 /* SubProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE50E531F2F0A8200F089D9 /* SubProductsViewController.swift */; };
+		BFE50E591F2F98D800F089D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFE50E581F2F98D800F089D9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +48,6 @@
 		1BA959F61F29F32800161249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BA959F81F29F32800161249 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1BA959FB1F29F32800161249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1BA959FD1F29F32800161249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BA95A001F29F32800161249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BA95A021F29F32800161249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BA95A101F2A008D00161249 /* VietNamePrice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VietNamePrice-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -76,6 +77,9 @@
 		BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFDBDEB61F2CFCCE000D05DF /* CommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		BFDBDEB81F2D003D000D05DF /* IntegrateAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrateAlertView.swift; sourceTree = "<group>"; };
+		BFE50E511F2F04E600F089D9 /* Hoang.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hoang.storyboard; sourceTree = "<group>"; };
+		BFE50E531F2F0A8200F089D9 /* SubProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubProductsViewController.swift; sourceTree = "<group>"; };
+		BFE50E581F2F98D800F089D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F889112E92E727BBD35182B5 /* Pods-VietNamePrice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VietNamePrice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VietNamePrice/Pods-VietNamePrice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 				1BA959F81F29F32800161249 /* ViewController.swift */,
 				1B4B3A521F2BAE8400F8D787 /* ContentTableViewCell.swift */,
 				1B4B3A541F2BB23200F8D787 /* ProductCollectionViewCell.swift */,
+				BFE50E531F2F0A8200F089D9 /* SubProductsViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 		1BA959F51F29F32800161249 /* vietnamprice */ = {
 			isa = PBXGroup;
 			children = (
+				BFE50E581F2F98D800F089D9 /* Assets.xcassets */,
 				1B4A882F1F2D79DE004B1CB8 /* VietNamePrice.entitlements */,
 				BFDBDEB41F2CAABE000D05DF /* GoogleService-Info.plist */,
 				BF631DE51F2C54A4007D897A /* Models */,
@@ -151,7 +157,6 @@
 				1BA95A1A1F2A0E3000161249 /* SettingLanguageViewController.swift */,
 				1BA95A1C1F2A1E3200161249 /* LoginViewController.swift */,
 				1BA95A1E1F2A339B00161249 /* SignUpViewController.swift */,
-				1BA959FD1F29F32800161249 /* Assets.xcassets */,
 				1BA95A021F29F32800161249 /* Info.plist */,
 				BF631DDB1F2C4D1B007D897A /* Language */,
 			);
@@ -229,6 +234,7 @@
 			children = (
 				1BA959FA1F29F32800161249 /* Main.storyboard */,
 				1BA959FF1F29F32800161249 /* LaunchScreen.storyboard */,
+				BFE50E511F2F04E600F089D9 /* Hoang.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -346,8 +352,9 @@
 			files = (
 				1BA95A011F29F32800161249 /* LaunchScreen.storyboard in Resources */,
 				BF631DE01F2C4DBE007D897A /* Localizable.strings in Resources */,
+				BFE50E521F2F04E600F089D9 /* Hoang.storyboard in Resources */,
 				BFDBDEB51F2CAABE000D05DF /* GoogleService-Info.plist in Resources */,
-				1BA959FE1F29F32800161249 /* Assets.xcassets in Resources */,
+				BFE50E591F2F98D800F089D9 /* Assets.xcassets in Resources */,
 				1BA959FC1F29F32800161249 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +429,7 @@
 				BFDBDEB01F2C8182000D05DF /* Product.swift in Sources */,
 				BF631DD61F2C4C62007D897A /* String+Extension.swift in Sources */,
 				BFDBDEA91F2C732E000D05DF /* ProductRouter.swift in Sources */,
+				BFE50E541F2F0A8200F089D9 /* SubProductsViewController.swift in Sources */,
 				BFDBDEB71F2CFCCE000D05DF /* CommonUtils.swift in Sources */,
 				BF631DE71F2C54B2007D897A /* ProductPrice.swift in Sources */,
 				BF631DD81F2C4C7B007D897A /* LanguageProtocol.swift in Sources */,

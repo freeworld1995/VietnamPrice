@@ -21,9 +21,9 @@ enum ProductRouter: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
-            case .getSubProduct, .getProductById:
+            case .getSubProduct:
                 return .get
-            case .getMainProduct:
+            case .getMainProduct, .getProductById:
                 return .post
             }
         }
