@@ -17,13 +17,13 @@ enum ProductRouter: URLRequestConvertible {
     case getMainProduct([String: Any])
     case getSubProduct()
     case getProductById([String: Any])
-    
+    case getBannerMessage()
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
             case .getSubProduct:
                 return .get
-            case .getMainProduct, .getProductById:
+            case .getMainProduct, .getProductById ,.getBannerMessage:
                 return .post
             }
         }
@@ -37,8 +37,10 @@ enum ProductRouter: URLRequestConvertible {
                 relativePath = "product-price"
             case .getSubProduct:
                 relativePath = "get-all-sub-products"
-            }
             
+            case .getBannerMessage:
+                relativePath = "banner-message"
+            }
             var url = URL(string: ProductRouter.baseURL)!
             url.appendPathComponent(relativePath)
             return url
@@ -47,7 +49,7 @@ enum ProductRouter: URLRequestConvertible {
         // Set params
         let params: Parameters? = {
             switch self {
-            case .getMainProduct, .getSubProduct, .getProductById:
+            case .getMainProduct, .getSubProduct, .getProductById, .getBannerMessage :
                 let params: Parameters = ["l": Language.getCurrentLanguageForRouter()]
                 return params
             }
@@ -56,7 +58,7 @@ enum ProductRouter: URLRequestConvertible {
         // Set HTTPBody
         let httpBody: Data? = {
             switch self {
-            case .getSubProduct:
+            case .getSubProduct , .getBannerMessage:
                 return nil
             case .getProductById(let dict), .getMainProduct(let dict):
                 print("di me may \(dict)")
@@ -80,15 +82,15 @@ enum ProductRouter: URLRequestConvertible {
 
         // Add authorization
         switch self {
-        case .getMainProduct, .getSubProduct, .getProductById:
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        case .getMainProduct, .getSubProduct, .getProductById ,.getBannerMessage:
+            urlRequest.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         }
         
         
         switch self {
         case .getMainProduct, .getProductById:
             return try! URLEncoding.queryString.encode(urlRequest, with: params)
-        case .getSubProduct:
+        case .getSubProduct,.getBannerMessage:
             return try! URLEncoding.default.encode(urlRequest, with: params)
         }
         

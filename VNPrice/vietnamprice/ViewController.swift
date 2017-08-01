@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet var menuButton: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var banner: UILabel!
+    
     
     var isPresentingSubProducts = false {
         didSet {
@@ -45,6 +47,15 @@ class ViewController: UIViewController {
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Alamofire.request(ProductRouter.getBannerMessage()).responseJSON { (response) in
+            if let json = response.result.value as? [String: Any] {
+                self.banner.text = json["description"] as? String
+            }
+        }
+    
+    }
     func loadData() {
         let params: Parameters = ["createdDate": "29/07/2017"]
         

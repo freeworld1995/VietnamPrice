@@ -40,6 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         application.registerForRemoteNotifications()
+        
+//        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-vi-ios")
+//        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-zh-ios")
+//        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-en-ios")
+//        
+        
+        Messaging.messaging().subscribe(toTopic: "/topics/bando-\(Language.getCurrentLanguageForRouter())-ios")
+        
         // Add observer for InstanceID token refresh callback.
 //        NotificationCenter.default.addObserver(self,
 //                                               selector: #selector(self.tokenRefreshNotification),
