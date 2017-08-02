@@ -29,7 +29,7 @@ class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+    
 
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 50;
@@ -39,6 +39,18 @@ class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDe
         super.viewWillAppear(animated)
         getMessaga()
         
+        
+        switch Language.getCurrentLanguageName() {
+        case "Tiếng Việt":
+            self.navigationItem.title? = "THÔNG BÁO"
+        case "English":
+            self.navigationItem.title? = "NOTIFICATION"
+        case "Chinese":
+            self.navigationItem.title? = "通知"
+            
+        default:
+            break
+        }
     }
     
     func getMessaga (){

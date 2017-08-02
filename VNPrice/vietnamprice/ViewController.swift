@@ -43,8 +43,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupLanguageForView(view)
         slideMenu()
-        
         loadData()
+        self.navigationItem.title = CommonUtils.getCurrentDayMonthYear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,8 +56,10 @@ class ViewController: UIViewController {
         }
     
     }
+    
+    
     func loadData() {
-        let params: Parameters = ["createdDate": "29/07/2017"]
+        let params: Parameters = ["createdDate": CommonUtils.getCurrentDayMonthYear()]
         
         ProductRequest.getMainProduct(viewController: self, params: params) { (result) in
             self.MainProducts = result
@@ -70,22 +72,22 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     func slideMenu() {
         if ( revealViewController() != nil ){
             menuButton.target = revealViewController()
-            menuButton.action = #selector(self.showSlideMenu(_:))
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             revealViewController().rearViewRevealWidth = 270
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
-    func showSlideMenu(_ sender: SWRevealViewController) {
-        if !isPresentingSubProducts {
-            _ = SWRevealViewController.revealToggle(_:)
-        } else {
+    func showSlideMenu() {
             loadData()
             isPresentingSubProducts = false
-        }
+            let testUIBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "icon_30x30") , style: .plain, target: revealViewController(), action:#selector(SWRevealViewController.revealToggle(_:)))
+            self.navigationItem.leftBarButtonItem  = testUIBarButtonItem
     }
     
     func showSubProducts(_ product: ProductPrice) {
@@ -123,6 +125,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         if !isPresentingSubProducts {
             showSubProducts(product)
+            let testUIBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "ic_back"), style: .plain, target: self, action:#selector(showSlideMenu))
+            self.navigationItem.leftBarButtonItem  = testUIBarButtonItem
+        
         } else {
             print("Show chart")
         }

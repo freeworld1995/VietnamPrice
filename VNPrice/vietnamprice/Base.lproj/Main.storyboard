@@ -207,7 +207,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thay Đôi(%)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="YLK-el-RIn">
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thay Đổi(%)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="YLK-el-RIn">
                                         <rect key="frame" x="188.5" y="1" width="92.5" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -299,7 +299,7 @@
             </objects>
             <point key="canvasLocation" x="1599.2" y="-500.59970014992507"/>
         </scene>
-        <!--THÔNG BÁO-->
+        <!--Thông Báo-->
         <scene sceneID="KuW-HK-5nd">
             <objects>
                 <viewController storyboardIdentifier="notification" id="ncO-El-6b6" customClass="NotiViewController" customModule="VietNamePrice" customModuleProvider="target" sceneMemberID="viewController">
@@ -377,7 +377,7 @@
                             <constraint firstItem="Lc4-Qg-zGd" firstAttribute="leading" secondItem="Q6y-ek-NMN" secondAttribute="leading" id="ppS-gD-vGj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="THÔNG BÁO" id="QcF-Jy-PIp">
+                    <navigationItem key="navigationItem" title="Thông Báo" id="QcF-Jy-PIp">
                         <barButtonItem key="leftBarButtonItem" image="icon_30x305" id="cui-IJ-qBq">
                             <connections>
                                 <action selector="back:" destination="ncO-El-6b6" id="7A1-ov-tLG"/>
@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iv-Pj-nLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2624.8000000000002" y="-501.49925037481262"/>
+            <point key="canvasLocation" x="2668" y="-507"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="BGx-0b-lr6">
@@ -539,8 +539,8 @@
                                     <action selector="China:" destination="omB-hN-Qjv" eventType="touchUpInside" id="V0I-U0-LhG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRUNG" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHf-G1-aAb">
-                                <rect key="frame" x="112" y="384" width="150" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中國" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHf-G1-aAb">
+                                <rect key="frame" x="124.5" y="384" width="125" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -591,7 +591,7 @@
                             <constraint firstItem="pHf-G1-aAb" firstAttribute="centerY" secondItem="laj-4a-gHR" secondAttribute="centerY" id="DTb-5y-PCW"/>
                             <constraint firstItem="laj-4a-gHR" firstAttribute="width" secondItem="VHO-do-WVj" secondAttribute="width" id="FdS-dg-2dQ"/>
                             <constraint firstItem="flG-ZG-0JJ" firstAttribute="height" secondItem="VHO-do-WVj" secondAttribute="height" id="FfM-Ye-dhl"/>
-                            <constraint firstItem="pHf-G1-aAb" firstAttribute="width" secondItem="laj-4a-gHR" secondAttribute="width" multiplier="4:5" id="GkW-hz-Jce"/>
+                            <constraint firstItem="pHf-G1-aAb" firstAttribute="width" secondItem="laj-4a-gHR" secondAttribute="width" multiplier="4:6" id="GkW-hz-Jce"/>
                             <constraint firstItem="VHO-do-WVj" firstAttribute="centerY" secondItem="Umv-03-7Gp" secondAttribute="centerY" id="H4c-ir-wLu"/>
                             <constraint firstItem="25a-sG-KIr" firstAttribute="width" secondItem="VHO-do-WVj" secondAttribute="width" multiplier="4:5" id="Pib-ip-X4F"/>
                             <constraint firstItem="v5h-X9-F0U" firstAttribute="height" secondItem="flG-ZG-0JJ" secondAttribute="height" id="SYi-vT-Pow"/>
