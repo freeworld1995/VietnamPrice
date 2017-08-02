@@ -88,9 +88,9 @@ enum ProductRouter: URLRequestConvertible {
         
         
         switch self {
-        case .getMainProduct, .getProductById:
+        case .getMainProduct, .getProductById ,.getBannerMessage:
             return try! URLEncoding.queryString.encode(urlRequest, with: params)
-        case .getSubProduct,.getBannerMessage:
+        case .getSubProduct:
             return try! URLEncoding.default.encode(urlRequest, with: params)
         }
         
