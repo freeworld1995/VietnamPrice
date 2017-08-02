@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
-       
+        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -41,18 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-vi-ios")
-        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-zh-ios")
-        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-en-ios")
-        
-        
-        Messaging.messaging().subscribe(toTopic: "/topics/bando-\(Language.getCurrentLanguageForRouter())-ios")
         
         // Add observer for InstanceID token refresh callback.
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(self.tokenRefreshNotification),
-//                                               name: .firInstanceIDTokenRefresh,
-//                                               object: nil)
+        //        NotificationCenter.default.addObserver(self,
+        //                                               selector: #selector(self.tokenRefreshNotification),
+        //                                               name: .firInstanceIDTokenRefresh,
+        //                                               object: nil)
         // [END register_for_notifications]
         return true
     }
@@ -72,7 +66,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Print full message.
         print(userInfo)
     }
-   
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+         Messaging.messaging().appDidReceiveMessage(userInfo)
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
     
     // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
     // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
@@ -81,33 +89,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("APNs token retrieved: \(deviceToken)")
         
         // With swizzling disabled you must set the APNs token here.
-        // Messaging.messaging().apnsToken = deviceToken
+        Messaging.messaging().apnsToken = deviceToken
     }
     
-    func tokenRefreshNotification(_ notification: Notification) {
-       
-        // Connect to FCM since connection may have failed when attempted before having a token.
-        connectToFcm()
-    }
-    
-    func connectToFcm() {
-        // Won't connect since there is no token
-        guard InstanceID.instanceID().token() != nil else {
-            return
-        }
-        
-        // Disconnect previous FCM connection if it exists.
-        Messaging.messaging().disconnect()
-        
-        Messaging.messaging().connect { (error) in
-            if error != nil {
-                print("Unable to connect with FCM. \(error?.localizedDescription ?? "")")
-            } else {
-                print("Connected to FCM.")
-            }
-        }
-    }
-
 }
 
 // [START ios_10_message_handling]
@@ -121,7 +105,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
+         Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
@@ -158,6 +142,15 @@ extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
         
+        
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-vi-ios")
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-zh-ios")
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-en-ios")
+        
+        
+        Messaging.messaging().subscribe(toTopic: "/topics/bando-\(Language.getCurrentLanguageForRouter())-ios")
+
+        
     }
     // [END refresh_token]
     // [START ios_10_data_message]
@@ -167,7 +160,7 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: \(remoteMessage.appData)")
         
         // print("remoteMessage \(remoteMessage.appData)\n")
-       
+        
     }
     // [END ios_10_data_message]
 }

@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>223762483158-ifcnp4shrlncrevo0hp75dc16dk5qnf4.apps.googleusercontent.com</string>
+	<string>223762483158-qja7jcrhm2iooqd7efugqmrsrvpjgr9a.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.223762483158-ifcnp4shrlncrevo0hp75dc16dk5qnf4</string>
+	<string>com.googleusercontent.apps.223762483158-qja7jcrhm2iooqd7efugqmrsrvpjgr9a</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCbmxmeSaKScIWEPwv53fA7sVgUsXYk4YA</string>
 	<key>GCM_SENDER_ID</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:223762483158:ios:08731747ea8663f0</string>
+	<string>1:223762483158:ios:f99331e6373fcf52</string>
 	<key>DATABASE_URL</key>
 	<string>https://lienketbando.firebaseio.com</string>
 </dict>
