@@ -44,13 +44,12 @@ class ViewController: UIViewController {
         setupLanguageForView(view)
         slideMenu()
         loadData()
-        slideBanner()
         self.navigationItem.title = CommonUtils.getCurrentDayMonthYear()
     }
     
     func slideBanner(){
        
-        UIView.animate(withDuration:10 , delay: 0.2, options:  [], animations: {
+        UIView.animate(withDuration: (TimeInterval(self.banner.frame.width / self.view.frame.width)) * 8, delay: 0, options:  .curveEaseOut, animations: {
             
             self.banner?.frame = CGRect(x: -1 * self.banner.frame.size.width, y: self.banner.frame.origin.y, width: (self.banner?.frame.size.width)!, height: (self.banner?.frame.size.height)!)
             
@@ -64,19 +63,25 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        Alamofire.request(ProductRouter.getBannerMessage()).responseJSON { (response) in
-//            if let json = response.result.value as? [String: Any] {
-//                self.banner.text = json["description"] as? String
-//                
-//
-//            }
-//        }
-        self.banner.text = "Thanks a bunch!!! Their suggestion was too cryptic to understand Actually what to write ... and the lack of documentation, and overwhelming amount of non-working swift2.2- code is quite frustrating"
+        Alamofire.request(ProductRouter.getBannerMessage()).responseJSON { (response) in
+            if let json = response.result.value as? [String: Any] {
+                self.banner.text = json["description"] as? String
+//                self.banner.text = "Cặp đôi này xứng đáng là thần tốc luôn :v Giờ kết hôn là phải nhanh như này mới chắc nè  Cặp đôi này xứng đáng là thần tốc luôn :v Giờ kết hôn là phải nhanh như này mới chắc nè "
+//                self.banner.sizeToFit()
+                let x = (self.banner.text?.width(withConstraintedHeight: 25, font: self.banner.font))!
+                
+                if(  x > self.view.frame.size.width){
+                    self.banner?.frame = CGRect(x: 0, y: self.banner.frame.origin.y, width: (self.banner.text?.width(withConstraintedHeight: self.banner.frame.size.height, font: self.banner.font))!, height: (self.banner?.frame.size.height)!)
+                    
+                    self.slideBanner()
+                }
+                
+
+            }
+        }
         
-        self.banner.sizeToFit()
-        self.banner?.frame = CGRect(x: 0, y: self.banner.frame.origin.y, width: (self.banner.text?.width(withConstraintedHeight: self.banner.frame.size.height, font: self.banner.font))!, height: (self.banner?.frame.size.height)!)
         
-        slideBanner()
+        
     }
     
     
