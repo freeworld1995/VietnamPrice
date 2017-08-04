@@ -14,7 +14,7 @@ import AlamofireObjectMapper
 class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     var arrMessages = [MessageDTO]()
-    var page = 0
+    var page = 1
     var isLoadMore = true
     
     @IBAction func back(_ sender: Any) {
@@ -87,6 +87,7 @@ class NotiViewController: UIViewController ,UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noticell", for: indexPath) as! NotiTableViewCell
         cell.contentLabel.text = arrMessages[indexPath.row].description!
+        cell.contentLabel.sizeToFit()
         cell.timeLabel.text = arrMessages[indexPath.row].createdDate!
         return cell
     }

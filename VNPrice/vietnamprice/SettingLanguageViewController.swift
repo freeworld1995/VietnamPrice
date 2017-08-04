@@ -12,18 +12,21 @@ class SettingLanguageViewController: UIViewController {
     
     @IBAction func vietNameClick(_ sender: Any) {
         Language.setLanguage(LANGUAGE_VN)
+        NotificationCenter.default.post(name: Notification.Name("subscribe"), object: nil)
         self.dismiss(animated: true, completion: nil)
         reset()
     }
 
     @IBAction func China(_ sender: Any) {
         Language.setLanguage(LANGUAGE_CHI)
+        NotificationCenter.default.post(name: Notification.Name("subscribe"), object: nil)
         self.dismiss(animated: true, completion: nil)
         reset()
     }
     
     @IBAction func englishClick(_ sender: Any) {
         Language.setLanguage(LANGUAGE_ENG)
+        NotificationCenter.default.post(name: Notification.Name("subscribe"), object: nil)
         self.dismiss(animated: true, completion: nil)
         reset()
     }

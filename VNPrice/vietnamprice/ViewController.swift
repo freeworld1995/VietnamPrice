@@ -67,7 +67,7 @@ class ViewController: UIViewController {
             if let json = response.result.value as? [String: Any] {
                 self.banner.text = json["description"] as? String
 //                self.banner.text = "Cặp đôi này xứng đáng là thần tốc luôn :v Giờ kết hôn là phải nhanh như này mới chắc nè  Cặp đôi này xứng đáng là thần tốc luôn :v Giờ kết hôn là phải nhanh như này mới chắc nè "
-//                self.banner.sizeToFit()
+                self.banner.sizeToFit()
                 let x = (self.banner.text?.width(withConstraintedHeight: 25, font: self.banner.font))!
                 
                 if(  x > self.view.frame.size.width){

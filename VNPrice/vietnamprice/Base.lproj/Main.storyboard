@@ -153,9 +153,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="167" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1oK-hr-y3T">
-                                                    <rect key="frame" x="8" y="9" width="151" height="32"/>
-                                                    <color key="backgroundColor" red="0.28456425455015932" green="0.28456425455015932" blue="0.28456425455015932" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1oK-hr-y3T">
+                                                    <rect key="frame" x="8" y="5" width="151" height="40.5"/>
+                                                    <color key="backgroundColor" red="0.28456425460000001" green="0.28456425460000001" blue="0.28456425460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -164,7 +164,7 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="1oK-hr-y3T" firstAttribute="leading" secondItem="EcR-Pz-qym" secondAttribute="leadingMargin" id="0Su-VA-ztN"/>
-                                            <constraint firstItem="1oK-hr-y3T" firstAttribute="top" secondItem="EcR-Pz-qym" secondAttribute="topMargin" constant="1" id="EbM-vu-2oo"/>
+                                            <constraint firstItem="1oK-hr-y3T" firstAttribute="top" secondItem="EcR-Pz-qym" secondAttribute="top" constant="5" id="IXy-vF-OnG"/>
                                             <constraint firstItem="1oK-hr-y3T" firstAttribute="centerY" secondItem="EcR-Pz-qym" secondAttribute="centerY" id="g9d-ts-iVq"/>
                                             <constraint firstItem="1oK-hr-y3T" firstAttribute="centerX" secondItem="EcR-Pz-qym" secondAttribute="centerX" id="oRB-bv-mjy"/>
                                         </constraints>

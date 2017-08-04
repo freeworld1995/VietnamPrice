@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+       
         FirebaseApp.configure()
         
         // [START set_messaging_delegate]
@@ -42,12 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         
-        // Add observer for InstanceID token refresh callback.
-        //        NotificationCenter.default.addObserver(self,
-        //                                               selector: #selector(self.tokenRefreshNotification),
-        //                                               name: .firInstanceIDTokenRefresh,
-        //                                               object: nil)
-        // [END register_for_notifications]
+        NotificationCenter.default.addObserver(self, selector: #selector(subscribe), name: Notification.Name("subscribe"), object: nil)
+        
         return true
     }
     
@@ -81,6 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        
+     
+
+    }
     
     // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
     // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
@@ -90,7 +91,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // With swizzling disabled you must set the APNs token here.
         Messaging.messaging().apnsToken = deviceToken
+        
+        
+        subscribe()
+        
+        
     }
+    
+    
+    func subscribe(){
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-vi-ios")
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-zh-ios")
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-en-ios")
+        
+        print("/topics/bando-\(Language.getCurrentLanguageForRouter())-ios")
+        Messaging.messaging().subscribe(toTopic: "/topics/bando-\(Language.getCurrentLanguageForRouter())-ios")
+    }
+    
     
 }
 
@@ -143,13 +160,6 @@ extension AppDelegate : MessagingDelegate {
         print("Firebase registration token: \(fcmToken)")
         
         
-        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-vi-ios")
-        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-zh-ios")
-        Messaging.messaging().unsubscribe(fromTopic: "/topics/bando-en-ios")
-        
-        
-        Messaging.messaging().subscribe(toTopic: "/topics/bando-\(Language.getCurrentLanguageForRouter())-ios")
-
         
     }
     // [END refresh_token]
